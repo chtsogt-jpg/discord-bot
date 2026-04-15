@@ -8,12 +8,12 @@ A Discord bot powered by Claude Code skills. Messages sent to the bot on Discord
 
 ## Skills
 
-### 1. `cs2-odds`
-Fetches live CS2 match info and returns betting analysis (recent form, head-to-head, roster notes, pick + confidence).
+### 1. `weather`
+Looks up current conditions and a 3-day forecast for any city via Open-Meteo (no API key needed).
 
 **Example**
-> User: who should I bet on, NAVI vs FaZe tomorrow?
-> Bot: **NAVI vs FaZe** — IEM Katowice, Bo3 ... Pick: NAVI (medium confidence)
+> User: what's the weather in Ulaanbaatar?
+> Bot: **Weather — Ulaanbaatar, Mongolia** / Now: -4°C, Clear, humidity 38%, wind 12 km/h / Next 3 days: ...
 
 ### 2. `lyrics`
 Looks up song lyrics by title and artist.
@@ -62,7 +62,7 @@ Live currency conversion. Defaults target to MNT.
 discord-bot/
 ├── .claude/
 │   └── skills/
-│       ├── cs2-odds/SKILL.md
+│       ├── weather/SKILL.md
 │       ├── lyrics/SKILL.md
 │       └── exchange-rate/SKILL.md
 └── README.md
