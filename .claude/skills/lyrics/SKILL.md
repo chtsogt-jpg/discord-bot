@@ -5,7 +5,7 @@ description: Look up song lyrics by song title and/or artist. Trigger when user 
 
 # Lyrics Skill
 
-Fetch lyrics for a requested song and return them cleanly formatted.
+Return info about a requested song, a short quoted excerpt (fair-use), and links to full lyrics. Do NOT reproduce full lyrics — they are copyrighted.
 
 ## When to trigger
 
@@ -16,35 +16,31 @@ Fetch lyrics for a requested song and return them cleanly formatted.
 
 ## Instructions
 
-1. Identify **song title** and **artist** from the user's message. If the artist is missing and the song title is ambiguous (e.g. "Hello" — could be Adele, Lionel Richie, etc.), ask the user which one.
-2. Use WebSearch to find the lyrics. Good sources:
-   - Genius.com
-   - AZLyrics.com
-   - Musixmatch
-3. Use WebFetch to pull the lyrics page, then extract the lyrics text.
-4. Return:
-   - **Title — Artist** on the first line (bold)
-   - Lyrics below, preserving verse/chorus line breaks
-   - Source link at the end
-5. If the song is very long, return the first 2-3 verses + chorus and offer to continue.
+Lyrics are copyrighted — do NOT reproduce full lyrics. Return song info + a short excerpt (chorus or one short verse) + links.
+
+1. Identify **song title** and **artist**. If the title is ambiguous (e.g. "Hello"), ask which one.
+2. Use WebSearch to confirm the song and find lyrics sources (Genius, AZLyrics, Musixmatch, Letras).
+3. Return:
+   - **Title — Artist** (year, album if known)
+   - 1-2 sentence description of what the song is about
+   - Short quoted excerpt — chorus hook or ~4 lines of one verse
+   - 2-3 links to lyrics sites for the full lyrics
 
 ## Edge cases
 
-- **Song not found** — say so directly, suggest the user check spelling or provide the artist.
-- **Multiple songs with same title** — list options, ask which one.
-- **Non-English songs** — return the lyrics in their original language. Offer translation only if asked.
-- **Explicit content** — return as-is; don't censor.
+- **Song not found** — say so, ask for spelling or artist.
+- **Multiple songs with same title** — list options, ask which.
+- **Non-English songs** — describe in the user's language, link to original lyrics.
 
 ## Output format
 
 ```
-**[Title]** — [Artist]
+**[Title]** — [Artist] ([Year], [Album])
 
-[Verse 1 lyrics]
-...
+[1-2 sentence description]
 
-[Chorus]
-...
+Excerpt:
+> [short chorus or ~4 verse lines]
 
-Source: [link]
+Full lyrics: [Genius](link) · [AZLyrics](link)
 ```
